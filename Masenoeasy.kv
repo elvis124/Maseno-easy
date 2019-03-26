@@ -1,0 +1,442 @@
+<Rootwidget>:
+    cols: 1
+    size_hint: (1,1)
+    id: screen_manager
+    orientation: 'vertical'
+    Floating:
+        size_hint: (1, .3)
+    Screenbuttons:
+        size_hint: (1, .1)
+    ScreenManagement:
+#root widget settings
+<Floating>:
+    videowidget: videowidget
+    registerwidget: registerwidget
+    settings: settings
+    helpwidget: helpwidget
+    musicwidget: musicwidget
+    actionBar: actionBar
+    previouswidget: previouswidget
+    size_hint: (1, .3)
+    textInput: textInput
+    GridLayout:
+        cols: 1
+    ActionBar:
+        id: actionBar
+        background_color: [0,1,1,1]
+        pos_hint: {'top': 1}
+        size_hint: (1, 1)
+        size: self.size
+        pos: self.pos
+        ActionView:
+            id: previouswidget
+            ActionPrevious:
+                with_previous: False
+                app_icon: 'icons/maseno.png'
+                background_color: [1,0,1,1]
+                markup: True
+                StackLayout:
+                    orientation: 'tb-rl'
+                    Button:
+                        id: registerwidget
+                        size_hint: (.2,.4)
+                        text: 'Register'
+                        font_size: 20
+                        background_color: [1,1,1,0]
+                        on_release: root.createaccount()
+
+                    Button:
+                        text: 'Profile'
+                        size_hint: (.3, .4)
+                        background_color: [1,1,1,0]
+                        on_press: root.myprofile()
+                        font_size: 12
+                StackLayout:
+                    orientation: 'tb-rl'
+                    Button:
+                        id: videowidget
+                        text: 'video '
+                        font_size: 12
+                        size_hint: (.2,.4)
+                        on_release: root.addvideo()
+                        background_color: [1,1,1,0]
+
+
+                    Button:
+                        id: musicwidget
+                        text:'music'
+                        font_size:12
+                        size_hint: (.2, .4)
+                        on_release: root.musicloader()
+                        background_color: [1,1,1,0]
+                StackLayout:
+                    orientation: 'tb-rl'
+                    Button:
+                        id: helpwidget
+                        text: '  ?  '
+                        font_size: 12
+                        size_hint: (.2, .4)
+                        background_color: [1,1,1,0]
+                        on_release: root.help()
+                    Button:
+                        id: textInput
+                        text: 'search'
+                        size_hint: (.5, .2)
+                        background_color: [1,1,1,0]
+                        on_press: root.search()
+                    Button:
+                        id: settings
+                        text: '[||||]'
+                        font_size: 12
+                        size_hint: (.2,.4)
+                        background_color: [1,1,1,0]
+                        on_release: root.menu()
+                StackLayout:
+                    Image:
+                        id: image
+                        source: 'icons/maseno.png'
+
+
+
+
+                 
+
+                    
+
+
+#screen buttons
+<Screenbuttons>:
+    pos_hint: {'top': 1}
+    orientation: 'horizontal'
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: 'icons/maseno4.png'
+        cols: 5
+        size_hint: (1, .6)
+
+        Button:
+            id: publicScreen
+            text: 'Public status'
+            font_size: 14
+            background_color: [0,0,0,0]
+            on_release: root.publicstatus()
+        Button: 
+            id: chat
+            text: 'Chats'
+            background_color: [0,0,0,0]
+            on_release: root.chat()
+        Button: 
+            id: notification
+            text: 'Notifications'
+            background_color: [0,0,0,0]
+            on_release: root.notifications()
+        Button: 
+            id: call
+            text: 'Calls'
+            background_color: [0,0,0,0]
+            on_release: root.calls()
+
+
+
+
+
+
+
+#screens
+<ScreenManagement>:
+    id: screen_manager
+    orientation: 'horizontal'
+    activityScreen: activityScreen
+    publicScreen: publicScreen
+    chatScreen: chatScreen
+    notificationScreen: notificationScreen
+    callsScreen: callsScreen
+    freindsScreen: freindsScreen
+    myaccountScreen: myaccountScreen
+    mydocsScreen: mydocsScreen
+    mysecretsScreen: mysecretsScreen
+    Activity:
+        id: activityScreen
+        name: 'active'
+        manager: screen_manager
+    Publicstatus:
+        id: publicScreen
+        name: 'public_status'
+        manager: screen_manager
+    Chats:
+        id: chatScreen
+        name: 'chats'
+
+    Notifications:
+        id: notificationScreen
+        name: 'notifications'
+        manager: screen_manager
+    Calls:
+        id: callsScreen
+        name: 'call'
+        manager: screen_manager
+
+    Freinds:
+        id: freindsScreen
+        name: 'freinds'
+        manager: screen_manager
+
+    Myaccount:
+        id: myaccountScreen
+        name: 'myaccount'
+    Mydocs:
+        id: mydocsScreen
+        name: 'my_docs'
+    Mysecrets:
+        id: mysecretsScreen
+        name: 'my_secrets'
+
+#designing the screen of user activities
+<Activity>:
+    ScrollView:
+        GridLayout:
+            cols: 1
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: 'icons/maseno6.png'
+    
+#designiing a screen for publis status
+<Publicstatus>:
+    ScrollView:
+        GridLayout:
+            cols: 1
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: 'icons/maseno4.png'
+
+#designing a screen for chats
+<Chats>:
+    ScrollView:
+        GridLayout:
+            cols: 1
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: 'icons.maseno8.png'
+#designing a screen for displaying notifications
+<Notifications>:
+    ScrollView:
+        GridLayout:
+            cols: 1
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: 'icons/maseno2.png'
+#call screen for displaying a screen widget
+
+<Calls>:
+    ScrollView:
+        GridLayout:
+            cols: 1
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: 'icons/maseno6.png'
+
+
+#helpwidget to read the documentation on how to acces this
+<Helpwidget>:
+    cols: 1
+    StackLayout:
+        orientation: 'tb-lr'
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: 'icons/maseno5.png'
+        Button:
+            text: 'Help'
+            on_release: root.opentext()
+            size_hint: (1, .2)
+
+
+
+        
+
+#menu screen
+<Menuscreen>:
+    cols: 1
+    stackforaccounts: stackforaccounts
+    StackLayout:
+        id: stackforaccounts
+        orientation: 'tb-rl'
+        cols: 3
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: 'icons/maseno6.png'
+        Button: 
+            id: account
+            text: 'Account statements'
+            font_size: 18
+            size_hint: (1, .3)
+            background_color: [1,1,1,0]
+            on_release: root.mybanks()
+        Button: 
+            id: documents
+            text: 'My documents'
+            font_size: 18
+            size_hint: (1, .3)
+            background_color: [1,1,1,0]
+            on_release: root.books()
+        Button: 
+            id: my_secrets
+            text: 'My treasures'
+            font_size: 18
+            size_hint: (1, .3)
+            background_color: [1,1,1,0]
+            on_release: root.current='my_secrets'
+
+
+
+        
+#myprofile settings
+<Myprofile>:
+    cols: 1
+    orientation: 'vertical'
+    floatingwidget: floatingwidget
+    StackLayout:
+        id: floatingwidget
+        orientation: 'tb-lr'
+        cols: 6
+        padding: 10
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: 'icons/maseno3.png'
+        Button:
+            text: 'Activity'
+            font_size: 12
+            background_color: [1,1,1,0]
+            size_hint: (1, .2)
+            on_press: root.active()
+        Button: 
+            text: 'photo'
+            font_size: 12
+            background_color: [1,1,1,0]
+            size_hint: (1,.2)
+            on_press: root.add_photo()
+        Button: 
+            id: mystatus
+            text: 'status'
+            font_size: 12
+            size_hint: (1, .2)
+            on_release: root.mystatus()
+            background_color: [1,1,1,0]
+        Button:
+            text: 'cv'
+            font_size: 12
+            size_hint: (1, .2)
+            background_color: [1,1,1,0]
+        Button: 
+            text: 'About'
+            font_size: 12
+            size_hint: (1, .2)
+            background_color: [1,1,1,0]
+
+
+
+
+
+#my status
+<Mystatus>:
+    textinput: textinput
+    GridLayout:
+        cols: 2
+        TextInput:
+            id: textinput
+            text:''
+            size_hint: (.4, .4)
+        Button:
+            text: 'cancel'
+            size_hint: (.2, .2)
+            on_press: root.cancelstatus()
+            background_color: [1,1,1,0]
+        Button:
+            text: 'post'
+            size_hint: (.2,.2)
+            on_press: root.poststatus()
+            background_color: [1,1,1,0]
+        
+
+
+
+#music palyer
+<Musictoggle>:
+    cols: 1
+    StackLayout:
+        canvas.before:
+            Rectangle:
+                size: root.size
+                pos: root.pos
+                source: 'icons.maseno6.png'
+        cols: 1
+        orientation: 'tb-lr'
+        ScrollView:
+            FileChooserListView:
+                id: filechooser
+                on_selection: root.loading(filechooser.path, filechooser.selection)
+
+
+
+#adding photo
+<Photo>:
+    GridLayout:
+        size: root.size
+        pos: root.pos
+        cols: 1
+        ScrollView:
+            FileChooserListView:
+                id: filechooser
+                on_selection: root.save(filechooser.selection, filechooser.path)
+#adding videos
+<Videofiles>:
+    cols: 1
+    StackLayout:
+        canvas.before:
+            Rectangle:
+                size: root.size
+                pos: root.pos
+                source: 'icons/maseno6.png'
+        orientation: "tb-lr"
+        ScrollView:
+            bar_width: 3
+            FileChooserListView:
+                id: filechooser
+                on_selection: root.load(filechooser.path, filechooser.selection)
+
+
+<Search>:
+    textinputs: textinputs
+    displaycontents: displaycontents
+    TextInput:
+        id: textinputs
+        focus: True
+        size_hint: (1, .2)
+        pos_hint: {'top': 1}
+    FloatLayout:
+        id: displaycontents
+        pos_hint: {'top': .8}
+        size_hint: (1, .8)
+        
+        
+
+
+        

@@ -1,0 +1,121 @@
+<Floating>:
+    size_hint: (1, 1)
+    orientation: 'vertical'
+    Button:
+        text: 'Register'
+        pos_hint: {'x': -.3}
+        size_hint: (.1, .1)
+
+    GridLayout:
+        cols: 1
+        ScrollView:
+    ActionBar:
+        id: ActionBar
+        pos_hint: {'top': 1}
+        size_hint: (1, .3)
+        orientation: 'horizontal'
+        use_separator: True
+        ActionView:
+            padding: 20
+            ActionPrevious:
+                id: act
+                with_previous: False
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'Activity'
+                background_color: [1,1,1,0]
+                on_release: root.active()
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'P_Status'
+                font_size: 14
+                background_color: [1,1,1,0]
+                on_release: root.c()
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'Chats'
+                background_color: [1,1,1,0]
+                on_release: root.c
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'Alerts'
+                background_color: [1,1,1,0]
+                on_release: app.root.notify='alert'
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'Calls'
+                background_color: [1,1,1,0]
+                on_release: app.root.call='call'
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'Account'
+                background_color: [1,1,1,0]
+                on_release: app.root.myaccount='myaccount'
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'docs'
+                background_color: [1,1,1,0]
+                on_release: app.root.mydocs='my_docs'
+            ActionButton: 
+                size_hint: (None, .1)
+                text: 'secrets'
+                background_color: [1,1,1,0]
+                on_release: app.root.mysecrets='my_secrets'
+<Activity>:
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'Activity'
+    Button:
+        text: 'sefw'
+<Publicstatus>:
+    id: Public_Status
+    size_hint: (1, .7)
+    orientation: 'Vertical'
+    name: 'Public_Status'
+    Button:
+        text: 'asfyu'
+<Notifications>:
+    id: notifications
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'alert'
+<Chats>:
+    id: chats
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'Chats'
+    Button:
+        text: 'sfnsih'
+        
+<Calls>:
+    id: calls
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'call'
+<Freinds>:
+    id: freinds
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'Freinds'
+<Myaccount>:
+    id: myaccount
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'myaccount'
+<Mydocs>:
+    id: mydocs
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'my_docs'
+<Mysecrets>:
+    id: mysecrets
+    size_hint: (1, .7)
+    orientation: 'vertical'
+    name: 'my_secrets'
+
+
+
+
+
+
+        
